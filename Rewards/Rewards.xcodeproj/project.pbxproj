@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1604B88A21E32D06008CCC32 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B88921E32D06008CCC32 /* CustomFlowLayout.swift */; };
+		1604B88E21E48CA7008CCC32 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1604B88D21E48CA7008CCC32 /* Favorites.storyboard */; };
+		1604B89021E48D24008CCC32 /* MyCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1604B88F21E48D24008CCC32 /* MyCard.storyboard */; };
+		1604B89321E4952D008CCC32 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B89221E4952D008CCC32 /* Banner.swift */; };
+		1604B89521E4953A008CCC32 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B89421E4953A008CCC32 /* Promo.swift */; };
+		1604B89821E4B58B008CCC32 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B89721E4B58B008CCC32 /* Image.swift */; };
+		1604B89B21E58603008CCC32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B89A21E58603008CCC32 /* Constants.swift */; };
+		1604B89D21E58628008CCC32 /* ApiServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B89C21E58628008CCC32 /* ApiServiceHandler.swift */; };
+		1604B8A121E5A555008CCC32 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B8A021E5A555008CCC32 /* CustomImageView.swift */; };
+		1604B8A321E5D43D008CCC32 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B8A221E5D43D008CCC32 /* Color.swift */; };
 		16427DA221E218C2008E74EE /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16427DA121E218C2008E74EE /* Coupon.storyboard */; };
 		16427DA621E219C6008E74EE /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16427DA421E219C6008E74EE /* BannerCollectionViewCell.swift */; };
 		16427DA721E219C6008E74EE /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16427DA521E219C6008E74EE /* BannerCollectionViewCell.xib */; };
@@ -48,6 +57,15 @@
 
 /* Begin PBXFileReference section */
 		1604B88921E32D06008CCC32 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
+		1604B88D21E48CA7008CCC32 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		1604B88F21E48D24008CCC32 /* MyCard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCard.storyboard; sourceTree = "<group>"; };
+		1604B89221E4952D008CCC32 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		1604B89421E4953A008CCC32 /* Promo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
+		1604B89721E4B58B008CCC32 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		1604B89A21E58603008CCC32 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1604B89C21E58628008CCC32 /* ApiServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceHandler.swift; sourceTree = "<group>"; };
+		1604B8A021E5A555008CCC32 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		1604B8A221E5D43D008CCC32 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		16427DA121E218C2008E74EE /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Coupon.storyboard; path = Rewards/View/Storyboard/Coupon.storyboard; sourceTree = SOURCE_ROOT; };
 		16427DA421E219C6008E74EE /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		16427DA521E219C6008E74EE /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -103,9 +121,55 @@
 		1604B88821E2E363008CCC32 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				1604B88F21E48D24008CCC32 /* MyCard.storyboard */,
 				16427DA121E218C2008E74EE /* Coupon.storyboard */,
+				1604B88D21E48CA7008CCC32 /* Favorites.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		1604B89121E4951C008CCC32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1604B89221E4952D008CCC32 /* Banner.swift */,
+				1604B89421E4953A008CCC32 /* Promo.swift */,
+				1604B89721E4B58B008CCC32 /* Image.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1604B89621E4969A008CCC32 /* APIServiceHandler */ = {
+			isa = PBXGroup;
+			children = (
+				1604B89C21E58628008CCC32 /* ApiServiceHandler.swift */,
+			);
+			path = APIServiceHandler;
+			sourceTree = "<group>";
+		};
+		1604B89921E585E9008CCC32 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1604B89F21E5A527008CCC32 /* CustomViews */,
+				1604B89E21E5A501008CCC32 /* Extensions */,
+				1604B89A21E58603008CCC32 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1604B89E21E5A501008CCC32 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1604B8A221E5D43D008CCC32 /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1604B89F21E5A527008CCC32 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1604B8A021E5A555008CCC32 /* CustomImageView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		16427DA321E218C7008E74EE /* Cell */ = {
@@ -144,6 +208,9 @@
 		1666702F21E1FD1400B997B9 /* Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				1604B89921E585E9008CCC32 /* Utilities */,
+				1604B89621E4969A008CCC32 /* APIServiceHandler */,
+				1604B89121E4951C008CCC32 /* Model */,
 				1666705F21E2164200B997B9 /* Controller */,
 				1666705E21E2163600B997B9 /* View */,
 				1666703021E1FD1400B997B9 /* AppDelegate.swift */,
@@ -300,12 +367,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1604B89021E48D24008CCC32 /* MyCard.storyboard in Resources */,
 				16427DAB21E219E9008E74EE /* SectionCollectionViewCell.xib in Resources */,
 				1666703B21E1FD1700B997B9 /* LaunchScreen.storyboard in Resources */,
 				1666703821E1FD1700B997B9 /* Assets.xcassets in Resources */,
 				16427DA221E218C2008E74EE /* Coupon.storyboard in Resources */,
 				1666703621E1FD1400B997B9 /* Main.storyboard in Resources */,
 				16427DAF21E21B22008E74EE /* GenericCollectionViewCell.xib in Resources */,
+				1604B88E21E48CA7008CCC32 /* Favorites.storyboard in Resources */,
 				16427DA721E219C6008E74EE /* BannerCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,12 +405,19 @@
 				1666706821E216DF00B997B9 /* StoreController.swift in Sources */,
 				1666706121E2168600B997B9 /* CouponController.swift in Sources */,
 				1604B88A21E32D06008CCC32 /* CustomFlowLayout.swift in Sources */,
+				1604B89B21E58603008CCC32 /* Constants.swift in Sources */,
+				1604B89321E4952D008CCC32 /* Banner.swift in Sources */,
 				1666703121E1FD1400B997B9 /* AppDelegate.swift in Sources */,
+				1604B89821E4B58B008CCC32 /* Image.swift in Sources */,
 				1666706621E216CD00B997B9 /* MyCardController.swift in Sources */,
 				16427DA621E219C6008E74EE /* BannerCollectionViewCell.swift in Sources */,
+				1604B89D21E58628008CCC32 /* ApiServiceHandler.swift in Sources */,
 				16427DAA21E219E9008E74EE /* SectionCollectionViewCell.swift in Sources */,
+				1604B89521E4953A008CCC32 /* Promo.swift in Sources */,
 				16427DAE21E21B22008E74EE /* GenericCollectionViewCell.swift in Sources */,
+				1604B8A121E5A555008CCC32 /* CustomImageView.swift in Sources */,
 				1666706421E216A400B997B9 /* FavoritesController.swift in Sources */,
+				1604B8A321E5D43D008CCC32 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
