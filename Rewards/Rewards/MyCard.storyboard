@@ -72,6 +72,9 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xbo-te-3ek" kind="relationship" relationship="rootViewController" id="VpP-gS-AdQ"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHB-Xv-nLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,6 +126,29 @@
             </objects>
             <point key="canvasLocation" x="1014" y="856"/>
         </scene>
+        <!--Rewards-->
+        <scene sceneID="ej2-6l-hFa">
+            <objects>
+                <viewController id="LkE-QQ-vRL" customClass="MyCardController" customModule="Rewards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jJZ-qh-LE7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zJd-1S-mWe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rewards" id="EmT-d0-xe2">
+                        <barButtonItem key="leftBarButtonItem" image="nav_qr" id="NQq-hV-nit">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="nav_notif" id="lX0-u1-7yz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hU-2o-eZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="236" y="1575"/>
+        </scene>
         <!--My Card-->
         <scene sceneID="VeC-b1-G9a">
             <objects>
@@ -139,7 +165,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fWX-PS-fGB" kind="relationship" relationship="rootViewController" id="yxK-cp-on8"/>
+                        <segue destination="LkE-QQ-vRL" kind="relationship" relationship="rootViewController" id="yxK-cp-on8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZZ-f9-I5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,15 +228,15 @@
             </objects>
             <point key="canvasLocation" x="-1436" y="1575"/>
         </scene>
-        <!--MyCard-->
-        <scene sceneID="nYv-GZ-MT6">
+        <!--Favorites-->
+        <scene sceneID="s2A-Cz-MSs">
             <objects>
-                <viewControllerPlaceholder storyboardName="MyCard" id="fWX-PS-fGB" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="iBT-3x-ivT"/>
+                <viewControllerPlaceholder storyboardName="Favorites" id="Xbo-te-3ek" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eDp-de-xzt"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f4s-hy-fpV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZO-Yt-lX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="236" y="1575"/>
+            <point key="canvasLocation" x="-583" y="1575"/>
         </scene>
     </scenes>
     <resources>

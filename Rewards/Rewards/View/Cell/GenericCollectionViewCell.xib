@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="143" height="195"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffe" translatesAutoresizingMaskIntoConstraints="NO" id="fFG-Ke-ITZ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffe" translatesAutoresizingMaskIntoConstraints="NO" id="fFG-Ke-ITZ" customClass="CustomImageView" customModule="Rewards" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="143" height="195"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
@@ -34,7 +34,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-it-VNX">
                         <rect key="frame" x="0.0" y="145" width="143" height="50"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_heart" translatesAutoresizingMaskIntoConstraints="NO" id="isb-sd-UfM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="isb-sd-UfM" customClass="CustomImageView" customModule="Rewards" customModuleProvider="target">
                                 <rect key="frame" x="7" y="12.5" width="25" height="25"/>
                                 <color key="tintColor" red="0.448514998" green="0.078221283850000004" blue="0.1254745722" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -73,9 +73,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="143" height="195"/>
             <connections>
-                <outlet property="ivFavorites" destination="0lQ-ST-IwL" id="qqr-Ch-zEV"/>
-                <outlet property="ivLogo" destination="isb-sd-UfM" id="KF1-kM-ea2"/>
-                <outlet property="iv_banner" destination="fFG-Ke-ITZ" id="Mwh-hc-oW4"/>
+                <outlet property="ivBanner" destination="fFG-Ke-ITZ" id="aYw-mE-sMB"/>
+                <outlet property="ivFavorites" destination="0lQ-ST-IwL" id="QcU-Ww-BqD"/>
+                <outlet property="ivLogo" destination="isb-sd-UfM" id="54f-iI-QEz"/>
                 <outlet property="lblTitle" destination="e8D-H7-78u" id="4gU-Jf-Oi6"/>
             </connections>
             <point key="canvasLocation" x="212" y="219.94002998500753"/>
