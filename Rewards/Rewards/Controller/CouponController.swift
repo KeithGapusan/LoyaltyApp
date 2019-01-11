@@ -118,13 +118,18 @@ extension CouponController: UICollectionViewDelegate, UICollectionViewDataSource
         if indexPath.section == 1{
             if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cell_id_section, for: indexPath) as? SectionCollectionViewCell{
                 sectionHeader.couponController = self
+                
+                sectionHeader.target(forAction: #selector(didtapSectionHeader), withSender: self)
+                    
                 return sectionHeader
             }
         }
 
         return UICollectionReusableView()
     }
-    
+    @objc func didtapSectionHeader(){
+        
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0{
             return CGSize(width: 0, height: 0)
@@ -202,16 +207,17 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
         cellExpanded = true
         
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.zPosition = CGFloat(99)
+        cell?.layer.zPosition = 2
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        collectionView.isScrollEnabled = false
 
         UIView.animate(withDuration: 0.5, animations: {
             collectionView.alpha = 0.5
             collectionView.frame = (UIApplication.shared.keyWindow?.frame)!
-
         }) { (completed) in
-            UIApplication.shared.keyWindow?.bringSubviewToFront(cell!)
+           UIApplication.shared.keyWindow?.bringSubviewToFront(cell!)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveLinear, animations: {
                                 if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
                     statusBar.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31, alpha: 0.1)
@@ -227,26 +233,38 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
     
     fileprivate func animateCellToDefaultSize(_ collectionView: UICollectionView, _ indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.zPosition = 0
-        UIView.animate(withDuration: 0.5, animations: {
-            self.tabBarController?.tabBar.isHidden =  false
-            self.navigationController?.isNavigationBarHidden = false
-            if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
-                statusBar.backgroundColor = Constants.primary_color
-                
-            }
+        collectionView.isScrollEnabled = true
+        self.tabBarController?.tabBar.isHidden =  false
+        self.navigationController?.isNavigationBarHidden = false
+        if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.backgroundColor = Constants.primary_color
             
+        }
+        UIView.animate(withDuration: 0.5, animations: {
+            UIApplication.shared.keyWindow?.sendSubviewToBack(cell!)
+            cell?.layer.zPosition = -1
+            print()
+           cell?.frame.size =  self.cellSizeEqualSpaces(collectionView)
         }) { (completed) in
             self.cellExpanded = false
             collectionView.reloadItems(at: [indexPath])
+            collectionView.reloadData()
+            collectionView.collectionViewLayout.invalidateLayout()
+
+
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if cellExpanded{
-            animateCellToDefaultSize(collectionView, indexPath)
-        }else{
-            animateCellExpand(collectionView, indexPath)
+        if indexPath.section  == 1 {
+            if cellExpanded{
+                
+                animateCellToDefaultSize(collectionView, indexPath)
+            }else{
+                animateCellExpand(collectionView, indexPath)
+            }
+
         }
    }
+    
 }

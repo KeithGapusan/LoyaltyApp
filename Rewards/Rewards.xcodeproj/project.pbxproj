@@ -18,6 +18,7 @@
 		1604B8A121E5A555008CCC32 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B8A021E5A555008CCC32 /* CustomImageView.swift */; };
 		1604B8A321E5D43D008CCC32 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B8A221E5D43D008CCC32 /* Color.swift */; };
 		1604B8A521E7585F008CCC32 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B8A421E7585E008CCC32 /* Autolayout.swift */; };
+		1604B8A721E849B7008CCC32 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604B8A621E849B7008CCC32 /* BaseCell.swift */; };
 		16427DA221E218C2008E74EE /* Coupon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16427DA121E218C2008E74EE /* Coupon.storyboard */; };
 		16427DA621E219C6008E74EE /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16427DA421E219C6008E74EE /* BannerCollectionViewCell.swift */; };
 		16427DA721E219C6008E74EE /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16427DA521E219C6008E74EE /* BannerCollectionViewCell.xib */; };
@@ -68,6 +69,7 @@
 		1604B8A021E5A555008CCC32 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		1604B8A221E5D43D008CCC32 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1604B8A421E7585E008CCC32 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
+		1604B8A621E849B7008CCC32 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		16427DA121E218C2008E74EE /* Coupon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Coupon.storyboard; path = Rewards/View/Storyboard/Coupon.storyboard; sourceTree = SOURCE_ROOT; };
 		16427DA421E219C6008E74EE /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		16427DA521E219C6008E74EE /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				16427DA921E219E9008E74EE /* SectionCollectionViewCell.xib */,
 				16427DAC21E21B22008E74EE /* GenericCollectionViewCell.swift */,
 				16427DAD21E21B22008E74EE /* GenericCollectionViewCell.xib */,
+				1604B8A621E849B7008CCC32 /* BaseCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				1604B8A521E7585F008CCC32 /* Autolayout.swift in Sources */,
 				1604B89B21E58603008CCC32 /* Constants.swift in Sources */,
 				1604B89321E4952D008CCC32 /* Banner.swift in Sources */,
+				1604B8A721E849B7008CCC32 /* BaseCell.swift in Sources */,
 				1666703121E1FD1400B997B9 /* AppDelegate.swift in Sources */,
 				1604B89821E4B58B008CCC32 /* Image.swift in Sources */,
 				1666706621E216CD00B997B9 /* MyCardController.swift in Sources */,
