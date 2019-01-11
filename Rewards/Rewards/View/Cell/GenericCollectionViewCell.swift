@@ -35,10 +35,7 @@ class GenericCollectionViewCell: UICollectionViewCell {
         didSet{
             self.lblTitle.text = banner?.title ?? ""
             if let promoUrl = banner?.logo{
-                print(promoUrl)
                 self.ivLogo.loadImageUsingUrlString(urlString: promoUrl)
-          
-            
             }
             if let bannerUrl = banner?.image{
                 self.ivBanner.loadImageUsingUrlString(urlString:bannerUrl )
@@ -61,6 +58,13 @@ class GenericCollectionViewCell: UICollectionViewCell {
         self.ivBanner.contentMode = .scaleAspectFill
         self.ivFavorites.contentMode = .scaleAspectFill
         self.layer.cornerRadius = 5
+      //  self.backgroundColor = .red
+
+//        UIView.animate(withDuration: 3, animations: {
+//            self.backgroundColor = .white
+//        }) { (completed) in
+//
+//        }
     }
 
 }
