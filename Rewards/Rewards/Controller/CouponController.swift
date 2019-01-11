@@ -15,7 +15,10 @@ class CouponController: UIViewController {
     let cell_id = "generic_id"
     let cell_id_section = "section"
     let cell_banner_id = "banner_id"
-    
+    var redView = UIView()
+
+    var cellExpanded: Bool = false
+
     
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 5.0,
@@ -54,8 +57,17 @@ class CouponController: UIViewController {
           //  print("\(promo)")
             self.bannerList = banner
             self.promoList = promo
-            self.collectionView.reloadData()
+           // self.collectionView.reloadData()
+            let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
+            let indexSet = IndexSet(integersIn: range)
+            self.collectionView.reloadSections(indexSet)
         }
+        redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31, alpha: 1)
+        view.addSubview(redView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
+        view.addConstraintsWithFormat(format: "V:|-(-16)-[v0(10)]", views: redView)
+     //   view.backgroundColor = .blue
+        
         
     }
 
@@ -130,6 +142,16 @@ extension CouponController: UICollectionViewDelegate, UICollectionViewDataSource
 }
 extension CouponController : UICollectionViewDelegateFlowLayout{
  
+    fileprivate func cellSizeEqualSpaces(_ collectionView: UICollectionView) -> CGSize {
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        let lower : UInt32 =  UInt32(collectionView.frame.size.height / 3)
+        let upper : UInt32 =  UInt32(collectionView.frame.size.height)
+        //  let randomNumber = arc4random_uniform(upper - lower) + lower
+        return CGSize(width: widthPerItem, height: CGFloat(lower))
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -138,13 +160,7 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
             return CGSize(width: collectionView.frame.width, height: self.view.frame.size.height / 3 )
         case 1:
 
-            let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-            let availableWidth = view.frame.width - paddingSpace
-            let widthPerItem = availableWidth / itemsPerRow
-            let lower : UInt32 =  UInt32(collectionView.frame.size.height / 3)
-            let upper : UInt32 =  UInt32(collectionView.frame.size.height)
-            let randomNumber = arc4random_uniform(upper - lower) + lower
-            return CGSize(width: widthPerItem, height: CGFloat(lower))
+            return cellSizeEqualSpaces(collectionView)
         default:
             
             return CGSize(width: 0 , height: 0)
@@ -168,4 +184,69 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        cell.alpha = 0.0
+        UIView.animate(withDuration: 0.15, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            cell.alpha = 1.0
+        })
+
+    }
+    
+    
+    fileprivate func animateCellExpand(_ collectionView: UICollectionView, _ indexPath: IndexPath) {
+        cellExpanded = true
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.zPosition = CGFloat(99)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+        UIView.animate(withDuration: 0.5, animations: {
+            collectionView.alpha = 0.5
+            collectionView.frame = (UIApplication.shared.keyWindow?.frame)!
+
+        }) { (completed) in
+            UIApplication.shared.keyWindow?.bringSubviewToFront(cell!)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveLinear, animations: {
+                                if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+                    statusBar.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31, alpha: 0.1)
+                }
+                 collectionView.alpha = 1
+                 cell?.frame = collectionView.bounds
+            }) { (completed) in
+                print("after \(collectionView.frame)")
+
+            }
+        }
+    }
+    
+    fileprivate func animateCellToDefaultSize(_ collectionView: UICollectionView, _ indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.zPosition = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.tabBarController?.tabBar.isHidden =  false
+            self.navigationController?.isNavigationBarHidden = false
+            if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+                statusBar.backgroundColor = Constants.primary_color
+                
+            }
+            
+        }) { (completed) in
+            self.cellExpanded = false
+            collectionView.reloadItems(at: [indexPath])
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if cellExpanded{
+            animateCellToDefaultSize(collectionView, indexPath)
+        }else{
+            animateCellExpand(collectionView, indexPath)
+        }
+   }
 }
