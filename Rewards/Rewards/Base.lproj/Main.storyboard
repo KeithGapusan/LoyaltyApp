@@ -72,6 +72,9 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WLp-8J-Wob" kind="relationship" relationship="rootViewController" id="cfb-vL-L0T"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHB-Xv-nLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,6 +204,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QP4-g9-iV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1436" y="1575"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="Cg5-Ut-c6c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favorites" id="WLp-8J-Wob" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nM1-Fs-0d1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ScN-Wv-Hsb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-583" y="1574"/>
         </scene>
         <!--MyCard-->
         <scene sceneID="nYv-GZ-MT6">

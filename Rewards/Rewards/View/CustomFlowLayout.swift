@@ -34,4 +34,16 @@ class CustomFlowLayout : UICollectionViewFlowLayout {
         }
         return nil
     }
+    
+    
+      func sizeEqualSpacing(_ collectionView: UICollectionView, itemsPerRow: CGFloat, sectionInsets: UIEdgeInsets, view: UIView, size : CGSize) -> CGSize{
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        let lower : UInt32 =  UInt32(collectionView.frame.size.height / 3)
+        let upper : UInt32 =  UInt32(collectionView.frame.size.height)
+        //  let randomNumber = arc4random_uniform(upper - lower) + lower
+        return CGSize(width: widthPerItem, height: CGFloat(lower))
+
+    }
 }
