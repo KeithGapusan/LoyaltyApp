@@ -38,6 +38,9 @@
 		1666706621E216CD00B997B9 /* MyCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666706521E216CD00B997B9 /* MyCardController.swift */; };
 		1666706821E216DF00B997B9 /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666706721E216DF00B997B9 /* StoreController.swift */; };
 		1666706A21E216ED00B997B9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666706921E216ED00B997B9 /* ProfileController.swift */; };
+		53A2A19921EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2A19821EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift */; };
+		53A2A19B21EADEBC00A068E7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2A19A21EADEBC00A068E7 /* Card.swift */; };
+		53A2A19D21EAFCED00A068E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2A19C21EAFCED00A068E7 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		1666706521E216CD00B997B9 /* MyCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardController.swift; sourceTree = "<group>"; };
 		1666706721E216DF00B997B9 /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
 		1666706921E216ED00B997B9 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		53A2A19821EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobinsonsCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		53A2A19A21EADEBC00A068E7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		53A2A19C21EAFCED00A068E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,8 @@
 				1604B89221E4952D008CCC32 /* Banner.swift */,
 				1604B89421E4953A008CCC32 /* Promo.swift */,
 				1604B89721E4B58B008CCC32 /* Image.swift */,
+				53A2A19A21EADEBC00A068E7 /* Card.swift */,
+				53A2A19C21EAFCED00A068E7 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 				16427DAC21E21B22008E74EE /* GenericCollectionViewCell.swift */,
 				16427DAD21E21B22008E74EE /* GenericCollectionViewCell.xib */,
 				1604B8A621E849B7008CCC32 /* BaseCell.swift */,
+				53A2A19821EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -420,12 +429,15 @@
 				1666706621E216CD00B997B9 /* MyCardController.swift in Sources */,
 				16427DA621E219C6008E74EE /* BannerCollectionViewCell.swift in Sources */,
 				1604B89D21E58628008CCC32 /* ApiServiceHandler.swift in Sources */,
+				53A2A19921EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift in Sources */,
 				16427DAA21E219E9008E74EE /* SectionCollectionViewCell.swift in Sources */,
 				1604B89521E4953A008CCC32 /* Promo.swift in Sources */,
 				16427DAE21E21B22008E74EE /* GenericCollectionViewCell.swift in Sources */,
 				1604B8A121E5A555008CCC32 /* CustomImageView.swift in Sources */,
 				1666706421E216A400B997B9 /* FavoritesController.swift in Sources */,
 				1604B8A321E5D43D008CCC32 /* Color.swift in Sources */,
+				53A2A19B21EADEBC00A068E7 /* Card.swift in Sources */,
+				53A2A19D21EAFCED00A068E7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M8AYP3HD3;
 				INFOPLIST_FILE = Rewards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,6 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5M8AYP3HD3;
 				INFOPLIST_FILE = Rewards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
