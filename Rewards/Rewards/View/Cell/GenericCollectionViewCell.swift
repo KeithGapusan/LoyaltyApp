@@ -58,13 +58,5 @@ class GenericCollectionViewCell: UICollectionViewCell {
         self.ivBanner.contentMode = .scaleAspectFill
         self.ivFavorites.contentMode = .scaleAspectFill
         self.layer.cornerRadius = 5
-      //  self.backgroundColor = .red
-
-//        UIView.animate(withDuration: 3, animations: {
-//            self.backgroundColor = .white
-//        }) { (completed) in
-//
-//        }
     }
-
 }

@@ -19,10 +19,10 @@ class  Promo: NSObject {
         self.logo             = json["logo"] as? String
         self.details          = json["details"] as? String
         self.title            = json["title"] as? String
-        if let image = json["image"] as? [String: String]{
+        if let image          = json["image"] as? [String: String]{
             self.image =  Image.init(json: image)
         }
-        self.favorite           = json["favorites"] as? Bool ?? false
+        self.favorite          = json["favorites"] as? Bool ?? false
     }
 }
 /*

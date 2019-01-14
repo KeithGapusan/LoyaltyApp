@@ -22,7 +22,19 @@ class FavoritesController: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        cv.backgroundColor = .white
         return cv
+    }()
+    
+    var labelLoading: UILabel = {
+       let lbl = UILabel()
+        lbl.text = "Loading..."
+        lbl.textAlignment = .center
+        lbl.contentMode = .center
+        lbl.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        lbl.textColor = .lightGray
+        //lbl.backgroundColor = .green
+        return lbl
     }()
     let id = "id"
     var promoList = [Promo]()
@@ -33,17 +45,13 @@ class FavoritesController: UIViewController {
 
         setupCollectionView()
         var apiService = APIServiceHandler()
-        apiService.fetchVideo { (promo, banner) in
-            // print(banner[0].image)
-            //  print("\(promo)")
-           // self.bannerList = banner
+        apiService.fetchPromos { (promo, banner) in
             self.promoList = promo
-            // self.collectionView.reloadData()
             let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
             let indexSet = IndexSet(integersIn: range)
             self.collectionView.reloadSections(indexSet)
+            self.labelLoading.text = ""
         }
-        
     }
     func setupCollectionView(){
         collectionView.delegate = self
@@ -52,6 +60,13 @@ class FavoritesController: UIViewController {
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
         collectionView.register(GenericCell.self,  forCellWithReuseIdentifier: id)
+        collectionView.addSubview(labelLoading)
+        //labelLoading.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: labelLoading)
+        view.addConstraintsWithFormat(format: "V:[v0(20)]", views: labelLoading)
+        view.addConstraint(NSLayoutConstraint.init(item: labelLoading, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+        
+        view.addConstraint(NSLayoutConstraint.init(item: labelLoading, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
     }
 
 }
@@ -65,11 +80,6 @@ extension FavoritesController : UICollectionViewDelegate, UICollectionViewDataSo
         cell?.promos = promoList[indexPath.item]
         return cell ?? UICollectionViewCell()
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        retur
-//    }
-    
     
 }
 
@@ -162,9 +172,8 @@ class  GenericCell: BaseCell {
         setupImageViewBanner()
         setupDetailViewHolder()
         setupImageViewFavorites()
-        print(imageViewLogo.frame)
-        imageViewLogo.layer.cornerRadius = 25
 
+        imageViewLogo.layer.cornerRadius = 25
         imageViewLogo.layer.masksToBounds = true
         imageViewLogo.contentMode = .scaleAspectFill
         

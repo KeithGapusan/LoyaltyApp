@@ -52,12 +52,10 @@ class CouponController: UIViewController {
         setupCollectionView()
         
         var apiService = APIServiceHandler()
-        apiService.fetchVideo { (promo, banner) in
-           // print(banner[0].image)
-          //  print("\(promo)")
+        apiService.fetchPromos { (promo, banner) in
+
             self.bannerList = banner
             self.promoList = promo
-           // self.collectionView.reloadData()
             let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
             let indexSet = IndexSet(integersIn: range)
             self.collectionView.reloadSections(indexSet)
@@ -65,9 +63,7 @@ class CouponController: UIViewController {
         redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31, alpha: 1)
         view.addSubview(redView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
-        view.addConstraintsWithFormat(format: "V:|-(-16)-[v0(10)]", views: redView)
-     //   view.backgroundColor = .blue
-        
+        view.addConstraintsWithFormat(format: "V:|-(-16)-[v0(10)]", views: redView)        
         
     }
 
@@ -238,6 +234,7 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
         self.navigationController?.isNavigationBarHidden = false
         if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
             statusBar.backgroundColor = Constants.primary_color
+            statusBar.tintColor = .white
             
         }
         UIView.animate(withDuration: 0.5, animations: {
