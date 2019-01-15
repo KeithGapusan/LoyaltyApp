@@ -10,7 +10,7 @@ import Foundation
 
 class Card: NSObject {
     var id : Int?
-    var points : Int
-    var qr_url : String
+    var points : Int?
+    var qr_url : String?
     var user : User?
 }

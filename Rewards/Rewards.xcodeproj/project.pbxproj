@@ -38,6 +38,7 @@
 		1666706621E216CD00B997B9 /* MyCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666706521E216CD00B997B9 /* MyCardController.swift */; };
 		1666706821E216DF00B997B9 /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666706721E216DF00B997B9 /* StoreController.swift */; };
 		1666706A21E216ED00B997B9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1666706921E216ED00B997B9 /* ProfileController.swift */; };
+		16F5F9DB21EDF35700C9C263 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5F9DA21EDF35700C9C263 /* GenericCell.swift */; };
 		53A2A19921EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2A19821EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift */; };
 		53A2A19B21EADEBC00A068E7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2A19A21EADEBC00A068E7 /* Card.swift */; };
 		53A2A19D21EAFCED00A068E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2A19C21EAFCED00A068E7 /* User.swift */; };
@@ -98,6 +99,7 @@
 		1666706521E216CD00B997B9 /* MyCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardController.swift; sourceTree = "<group>"; };
 		1666706721E216DF00B997B9 /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
 		1666706921E216ED00B997B9 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		16F5F9DA21EDF35700C9C263 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		53A2A19821EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobinsonsCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		53A2A19A21EADEBC00A068E7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		53A2A19C21EAFCED00A068E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				16427DAD21E21B22008E74EE /* GenericCollectionViewCell.xib */,
 				1604B8A621E849B7008CCC32 /* BaseCell.swift */,
 				53A2A19821EAD6C500A068E7 /* RobinsonsCardCollectionViewCell.swift */,
+				16F5F9DA21EDF35700C9C263 /* GenericCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1666706A21E216ED00B997B9 /* ProfileController.swift in Sources */,
+				16F5F9DB21EDF35700C9C263 /* GenericCell.swift in Sources */,
 				1666703321E1FD1400B997B9 /* ViewController.swift in Sources */,
 				1666706821E216DF00B997B9 /* StoreController.swift in Sources */,
 				1666706121E2168600B997B9 /* CouponController.swift in Sources */,

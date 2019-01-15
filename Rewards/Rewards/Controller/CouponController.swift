@@ -17,9 +17,8 @@ class CouponController: UIViewController {
     let cell_banner_id = "banner_id"
     var redView = UIView()
 
+    let apiService = APIServiceHandler()
     var cellExpanded: Bool = false
-
-    
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 5.0,
                                              left: 5.0,
@@ -51,7 +50,6 @@ class CouponController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         setupCollectionView()
         
-        var apiService = APIServiceHandler()
         apiService.fetchPromos { (promo, banner) in
 
             self.bannerList = banner
@@ -235,7 +233,6 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
         if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
             statusBar.backgroundColor = Constants.primary_color
             statusBar.tintColor = .white
-            
         }
         UIView.animate(withDuration: 0.5, animations: {
             UIApplication.shared.keyWindow?.sendSubviewToBack(cell!)
@@ -247,20 +244,16 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
             collectionView.reloadItems(at: [indexPath])
             collectionView.reloadData()
             collectionView.collectionViewLayout.invalidateLayout()
-
-
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section  == 1 {
             if cellExpanded{
-                
                 animateCellToDefaultSize(collectionView, indexPath)
             }else{
                 animateCellExpand(collectionView, indexPath)
             }
-
         }
    }
     

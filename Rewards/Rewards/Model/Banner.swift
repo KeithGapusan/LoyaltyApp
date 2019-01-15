@@ -27,5 +27,10 @@ class  Banner: NSObject {
         self.details = details
         self.title = title
     }
-    
+ 
+    func fetchData() -> Banner{
+        let banner = Banner.init(image: "data", logo: "data", title: "data", details: "data")
+        
+        return banner
+    }
 }
