@@ -24,6 +24,54 @@ class CouponController: UIViewController {
                                              left: 5.0,
                                              bottom: 5.0,
                                              right: 5.0)
+    
+    lazy var detailView : UIView = {
+       let view = UIView()
+        view.backgroundColor = .red
+        var panGesture       = UIPanGestureRecognizer()
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_:)))
+        
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(panGesture)
+
+
+        return view
+    }()
+    
+    @objc func draggedView(_ sender:UIPanGestureRecognizer){
+        self.view.bringSubviewToFront(detailView)
+        let translation = sender.translation(in: self.view)
+        detailView.center = CGPoint(x: detailView.center.x + translation.x, y: detailView.center.y + translation.y)
+        //  print("\(sender.velocity(in: self.view)) \(translation)")
+        let x = translation.x
+        let y = translation.y
+        print(y)
+        //sender.touchesEnded(Set<UITouch>, with: <#T##UIEvent#>)
+        let appViewHeight = self.view.frame.height / 2
+        let appHeight = self.view.frame.height / 4
+
+        if detailView.frame.height <= appViewHeight{
+            if detailView.frame.height >= appHeight {
+                UIView.animate(withDuration: 1, animations: {
+                    self.detailView.frame.size.height = appHeight
+                    self.detailView.frame.origin.x = 0
+                    self.detailView.frame.origin.y = self.view.frame.height - self.detailView.frame.height
+                    print()
+                    print("data == \(self.view.frame.height - self.detailView.frame.height)")
+                }) { (completed) in
+                    
+                }
+            }
+
+        }else if  detailView.frame.height > appViewHeight {
+           
+           // print(detailView.center)
+            detailView.frame.size.height = detailView.frame.size.height  - y
+            detailView.frame.origin.x = 0
+            
+            sender.setTranslation(CGPoint(x: 0, y:y / 2 ), in: self.view)
+        }
+    }
 
     fileprivate func setupCollectionView() {
     collectionView.register(UINib(nibName:"GenericCollectionViewCell",bundle:nil), forCellWithReuseIdentifier: cell_id)
@@ -61,7 +109,11 @@ class CouponController: UIViewController {
         redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31, alpha: 1)
         view.addSubview(redView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
-        view.addConstraintsWithFormat(format: "V:|-(-16)-[v0(10)]", views: redView)        
+        view.addConstraintsWithFormat(format: "V:|-(-16)-[v0(10)]", views: redView)
+        
+        view.addSubview(detailView)
+        view.addConstraintsWithFormat(format: "H:[v0]", views: detailView)
+        view.addConstraintsWithFormat(format: "V:[v0]", views: detailView)
         
     }
 
@@ -201,7 +253,7 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
         cellExpanded = true
         
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.zPosition = 2
+      //  cell?.layer.zPosition = 2
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
@@ -211,13 +263,16 @@ extension CouponController : UICollectionViewDelegateFlowLayout{
             collectionView.alpha = 0.5
             collectionView.frame = (UIApplication.shared.keyWindow?.frame)!
         }) { (completed) in
-           UIApplication.shared.keyWindow?.bringSubviewToFront(cell!)
+         //  UIApplication.shared.keyWindow?.bringSubviewToFront(cell!)
+            self.detailView.frame = (cell?.frame)!
+            
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveLinear, animations: {
                                 if let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
                     statusBar.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31, alpha: 0.1)
                 }
-                 collectionView.alpha = 1
-                 cell?.frame = collectionView.bounds
+                self.detailView.frame = self.view.bounds
+//                 collectionView.alpha = 1
+//                 cell?.frame = collectionView.bounds
             }) { (completed) in
                 print("after \(collectionView.frame)")
 
