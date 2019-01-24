@@ -106,6 +106,11 @@ class CouponController: UIViewController {
             let indexSet = IndexSet(integersIn: range)
             self.collectionView.reloadSections(indexSet)
         }
+        
+        
+        apiService.fetchMonth { (month) in
+            print("done")
+        }
         redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31, alpha: 1)
         view.addSubview(redView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
