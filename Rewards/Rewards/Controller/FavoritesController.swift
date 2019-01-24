@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class FavoritesController: UIViewController {
  
@@ -37,8 +39,12 @@ class FavoritesController: UIViewController {
         return lbl
     }()
     let id = "id"
-    var promoList = [Promo]()
-    
+   // var promoList = [Promo]()
+    // let europeanChocolates = Observable.just(Chocolate.ofEurop
+    var promos : Variable<[Promo]> = Variable([])
+    var promoList : [Promo]? = []
+    let disposeBag = DisposeBag()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,20 +73,20 @@ class FavoritesController: UIViewController {
         view.addConstraint(NSLayoutConstraint.init(item: labelLoading, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
         
         view.addConstraint(NSLayoutConstraint.init(item: labelLoading, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
-    }
+          }
 
 }
 extension FavoritesController : UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return promoList.count
+        return (promoList?.count)!
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as? GenericCell
-        cell?.promos = promoList[indexPath.item]
+        cell?.promos = promoList?[indexPath.item]
         return cell ?? UICollectionViewCell()
     }
-    
+
 }
 
 extension FavoritesController: UICollectionViewDelegateFlowLayout{
@@ -92,9 +98,9 @@ extension FavoritesController: UICollectionViewDelegateFlowLayout{
         let upper : UInt32 =  UInt32(collectionView.frame.size.height)
         //  let randomNumber = arc4random_uniform(upper - lower) + lower
         return CGSize(width: widthPerItem, height: CGFloat(lower))
-        
+
     }
-    
+
     fileprivate func cellSizeEqualSpaces(_ collectionView: UICollectionView) -> CGSize {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
@@ -104,7 +110,7 @@ extension FavoritesController: UICollectionViewDelegateFlowLayout{
         //  let randomNumber = arc4random_uniform(upper - lower) + lower
         return CGSize(width: widthPerItem, height: CGFloat(lower))
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       //  return sizeEqualSpacing(collectionView, itemsPerRow: 2, sectionInsets: sectionInsets, view: self.view)
         return cellSizeEqualSpaces(collectionView)
@@ -113,5 +119,5 @@ extension FavoritesController: UICollectionViewDelegateFlowLayout{
         return sectionInsets
     }
 }
-
-
+//
+//
