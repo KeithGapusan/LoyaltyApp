@@ -36,40 +36,33 @@ class  Promo: NSObject {
 class Month: NSObject {
    // var attennceArray = [String:Any]()
     var attendanceA = [Attendance]()
-
+    
     init(json: [Any]){
         for data in json{
             let convertedData = data as? [String:Any]
             print("converted == \(convertedData?.keys)")
         }
     }
+    
+    
     init(json: [String: Any]) {
-        let attendance = Attendance.init(json: json)
-        print("lkeys \(json.keys)")
-        print(json.values.first)
-        
-        
+
+        print(json.keys)
         for data in json{
             let val  = data.value as! [String:Any]
+            for logs in val.values{
+                let attendance = logs as? [[String:Any]]
+                for list in attendance!{
+                    self.attendanceA.append(Attendance.init(json: list))
+
+                }
+
+            }
             
-            attendanceA.append(Attendance.init(json: val))
         }
         for data in self.attendanceA{
             print(data.timeIn)
         }
-//        for data in json.values{
-//            self.attennceArray = data as! [String:Any]
-//            for data in self.attennceArray{
-//                let convertedData = data.value as? [String:Any]
-//
-//                let  data2 =  Attendance.init(json: convertedData ?? ["":""])
-//
-//                print("data == \(convertedData)")
-//                // print(convertedData.keys)
-//                //     }
-//
-//            }
-//        }
        
     }
 }
@@ -79,10 +72,11 @@ class Attendance: NSObject {
 
     
     init(json: [String: Any]) {
+        print(json.keys)
         if let timeInjason = json["time_in"] as? [Double]{
-            
+               self.timeIn  = json["time_in"] as? [Double]
         }
-        self.timeIn  = json["time_in"] as? [Double]
+     
     }
 }
 /*
